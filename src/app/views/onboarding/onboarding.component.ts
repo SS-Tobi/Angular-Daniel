@@ -15,7 +15,7 @@ export class OnboardingComponent implements OnInit {
       private router: Router,
       private toastrService: ToastrService,
       private navigationService: NavigationService,
-      private auth: AuthService,
+      public auth: AuthService,
   ) { }
 
   ngOnInit() {

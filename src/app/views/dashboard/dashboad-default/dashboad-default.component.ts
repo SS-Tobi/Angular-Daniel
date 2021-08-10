@@ -21,7 +21,7 @@ export class DashboadDefaultComponent implements OnInit {
     chart_data;
     chart_headers;
     profiles:any = [];
-    profileData = {};
+    profileData: any = {};
 
     competitors:any = [];
 

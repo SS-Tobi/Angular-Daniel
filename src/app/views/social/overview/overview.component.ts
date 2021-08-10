@@ -16,7 +16,7 @@ export class OverviewComponent implements OnInit {
   socialMediaStats: EChartOption;
   profiles:any = [];
 
-  profileData = {};
+  profileData: any = {};
 
   constructor(
       private fb: FormBuilder,

@@ -30,7 +30,7 @@ export class UserDetailsComponent implements OnInit {
   googleBusinessReview: EChartOption;
   yelpReview: EChartOption;
   profiles:any = [];
-  profileData = {};
+  profileData: any = {};
 
   chartLineOption1: EChartOption;
 
