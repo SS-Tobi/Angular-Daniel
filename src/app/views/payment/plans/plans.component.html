@@ -1,0 +1,54 @@
+<div class="col-12 col-sm-12 col-md-10 mx-auto">
+  <div class="on-boarding-form card-on-boarding-boxed mt-2">
+    <h1>Plans</h1>
+    <div class="plan-switcher mt-4">
+      <ul>
+        <li><a (click)="chosedDuration='monthly'" [ngClass]="{'active':chosedDuration=='monthly'}" href="javascript:;">Monthly</a></li>
+        <li><a (click)="chosedDuration='yearly'" [ngClass]="{'active':chosedDuration=='yearly'}" href="javascript:;">Yearly</a></li>
+      </ul>
+    </div>
+    <div class="card-on-boarding-box card-box-transparent">
+      <div class="onBoarding-form-box">
+
+        <div class="row" *ngIf="chosedDuration=='monthly'">
+          <div class="col mx-auto mb-4" *ngFor="let plan of plans">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-title mb-2">
+                  <p class="m-0"><strong>{{plan.name}}</strong></p>
+                  <h2 class="plan-price"><strong class="text-primary">{{evn.CURRENCY}}{{plan.monthly_price}}/month</strong></h2>
+                </div>
+                <div class="card-body pt-0">
+                  <div class="card-desc">
+                    {{plan.description}}
+                  </div>
+                  <a href="javascript:;" (click)="buyPlan(plan._id,'monthly')" class="btn btn-primary btn-rounded mt-3">Buy Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" *ngIf="chosedDuration=='yearly'">
+          <div class="col mx-auto mb-4" *ngFor="let plan of plans">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-title mb-2">
+                  <p class="m-0"><strong>{{plan.name}}</strong></p>
+                  <h2 class="plan-price"><strong class="text-primary">{{evn.CURRENCY}}{{plan.yearly_price}}/year</strong></h2>
+                </div>
+                <div class="card-body pt-0">
+                  <div class="card-desc">
+                    {{plan.description}}
+                  </div>
+                  <a href="javascript:;" (click)="buyPlan(plan._id,'yearly')" class="btn btn-primary btn-rounded mt-3">Buy Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

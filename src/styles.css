@@ -1,0 +1,499 @@
+/* You can add global styles to this file, and also import other style files */
+.stats-box-icon{
+    font-size: 42px;
+}
+.flex-grow-1.stats-icon-box-con {
+    max-width: 65px !important;
+}
+.card-icon-bg .card-body .content {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 90px;
+}
+.form-actions a {
+    margin: 0 5px;
+    color: #639 !important;
+    font-weight: 600;
+    font-size: 17px;
+}
+.ngx-datatable.fixed-row .datatable-scroll .datatable-body-row .datatable-body-cell {
+    display: table-cell !important;
+}
+.datatable-row-center.datatable-row-group {
+    width: 100% !important;
+    display: table !important;
+    table-layout: fixed !important;
+}
+.btn-primary{
+    color: #fff !important;
+}
+.btn-primary:hover{
+    color: #fff !important;
+}
+.social-stats-summary{
+    margin-bottom: 10px;
+}
+.social-stats-summary p {
+    margin: 0;
+    font-size: 13px;
+}
+.social-stats-summary p strong{
+    color: #000;
+}
+.breadcrumb.buttons {
+    float: right;
+    margin-top: -45px;
+}
+.user-details{
+    padding: 10px 15px;
+    margin-bottom: 25px;
+}
+.user-details ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.user-details ul li{
+    margin-bottom: 10px;
+}
+.user-details ul li p{
+    margin: 2px 0px;
+}
+.user-details ul li p:last-child{
+    color: #000;
+}
+.nav.nav-tabs.justify-content-start {
+    border-bottom: 1px solid #eee;
+    justify-content: left !important;
+}
+.accord-custom .card-header {
+    background: #fff;
+}
+
+.sidebar-left-secondary{
+    height:auto !important;
+}
+
+.layout-sidebar-large .sidebar-left .navigation-left .nav-item.lvl1{
+    position:relative !important;
+}
+
+/*.layout-sidebar-large .sidebar-left-secondary, .layout-sidebar-large .sidebar-left{
+    top:auto !important;
+}*/
+.sub-menu{
+    display:none;
+    padding:0px !important;
+}
+.sidebar-left{
+    overflow: visible !important;
+}
+
+.nav-item.lvl1:hover .sub-menu{
+    left:120px;
+    display:block;
+    margin-top:-80px;
+    position:absolute;
+
+}
+
+.layout-sidebar-large .sidebar-left-secondary, .layout-sidebar-large .sidebar-left{
+    position: absolute !important;
+    height:auto !important;
+}
+
+.carousel-indicators{
+    bottom:-10px !important;
+}
+.carousel-indicators li{
+    background:#663399;
+}
+.carousel-indicators .active{
+    background:rgba(102, 51, 153, 0.3);
+}
+
+/* Animate items as they’re being sorted. */
+
+.cdk-drop-list-dragging .cdk-drag {
+
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+
+}
+
+/* Animate an item that has been dropped. */
+
+.cdk-drag-animating {
+
+    transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
+
+}
+.form-group.success-mark, .form-group.error-mark {
+    position: relative;
+}
+.form-group.success-mark::after {
+    content: "";
+    font-family: "Fontawesome";
+    position: absolute;
+    color: #17bf17;
+    font-size: 18px;
+    top: 2px;
+    right: 15px;
+}
+.form-group.error-mark::after {
+    content: "";
+    font-family: "Fontawesome";
+    position: absolute;
+    color: #ff3322;
+    font-size: 18px;
+    top: 2px;
+    right: 15px;
+}
+.carousel-indicators .active {
+    background: rgba(102, 51, 153, 1) !important;
+}
+.carousel-indicators li:not(.active) {
+    background: rgba(102, 51, 153, 0.3) !important;
+}
+.chat-sidebar-container .chat-topbar {
+    height: auto;
+    padding: 22px !important;
+    position: relative;
+}
+.chat-sidebar-container .chat-topbar h3 {
+    display: block !important;
+    width: 100% !important;
+}
+.chat-sidebar-container .chat-topbar h3 {
+    display: block !important;
+    width: 100% !important;
+    font-size: 19px !important;
+    font-weight: 600;
+    color: #663399;
+}
+.badge.badge-open {
+    background: #22a622;
+    color: #fff;
+    padding: 6px 10px;
+    font-size: 11px;
+    position: absolute;
+    top: 23px;
+    right: 15px;
+}
+.badge.badge-closed {
+    background: #663399;
+    color: #fff;
+    padding: 6px 10px;
+    font-size: 11px;
+    position: absolute;
+    top: 23px;
+    right: 15px;
+}
+.chat-sidebar-container .chat-content-wrap .chat-content {
+    height: calc(100vh - 420px);
+}
+.admin-card-not-en{
+    padding: 120px 35px;
+}
+@media only screen and (max-width: 600px) {
+    .breadcrumb.buttons {
+        margin-top: 0px;
+        float: unset;
+    }
+    .admin-card-not-env{
+        margin-bottom: 30px;
+    }
+    .admin-card-not-en{
+        padding: 35px 35px !important;
+    }
+}
+:focus {
+    outline: none;
+}
+ngb-carousel.carousel.slide:focus {
+    outline: none !important;
+}
+.on-boarding-layout{
+    background: #f9faff;
+    min-height: 100vh;
+    width: 100%;
+    background: url('assets/images/6.jpg');
+}
+.onboarding-menu img {
+    height: 60px;
+    width: auto;
+}
+.onboarding-menu a {
+    float: right;
+    padding-top: 15px;
+    color: #333;
+}
+.onboarding-menu {
+    padding-top: 20px;
+}
+.on-boarding-form{
+    text-align: center;
+}
+.on-boarding-form{
+    margin-top: 70px;
+}
+.on-boarding-form p{
+    margin: 0;
+}
+.on-boarding-form h1{
+    font-weight: 600;
+}
+.card-on-boarding-box {
+    background: #fff;
+    padding: 25px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.05);
+    margin-top: 25px;
+    border-radius: 5px;
+}
+.card-on-boarding-boxed{
+    /*background: #fff;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.05);*/
+    padding: 50px 25px 0;
+    margin-top: 25px;
+    border-radius: 5px;
+}
+.card-box-transparent{
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+}
+.skip-on-boarding {
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin-top: 15px;
+    opacity: 0.7;
+}
+.skip-on-boarding:hover{
+    opacity: 1;
+}
+.social-media-lists ul{
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+    display: flex;
+}
+.social-media-lists ul li {
+    margin: 0 15px;
+}
+.social-media-lists form {
+    width: 100% !important;
+    display: block;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+}
+.social-media-lists form input{
+    text-align: center;
+}
+.form-btn-center button {
+    padding: 10px 25px;
+    font-size: 15px !important;
+}
+.form-btn-center button i {
+    margin-top: 3px;
+    padding-left: 8px;
+    float: right;
+    margin-right: -5px;
+}
+.alignLeftText{
+    text-align: left;
+}
+app-social-media, app-basic-info, app-config-analytics, app-website-info {
+    text-align: center;
+    width: 100%;
+}
+.hinting-input {
+    position: relative;
+}
+.hinting-suggesstions {
+    position: absolute;
+    width: 100%;
+    max-height: 200px;
+    background: #fff;
+    box-shadow: 0px 5px 15px #ccc;
+    z-index: 9;
+    overflow-y: auto;
+}
+.hinting-suggesstions ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.hinting-suggesstions ul li:not(:last-child) a {
+    border-bottom: 1px solid #eee;
+}
+.hinting-suggesstions ul li a {
+    display: block;
+    padding: 10px 15px;
+}
+.chat-content.rtl-ps-none.ng-tns-c9-0.ps.ng-star-inserted.ps--active-y {
+    overflow-y: auto !important;
+}
+.auth-logo img {
+    width: auto;
+    height: 75px;
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+.loadscreen img{
+    width: auto !important;
+}
+h1, h2, h3, h4, h5, h6, .card-title, .text-title {
+    color: #333;
+}
+body {
+    color: #333;
+}
+.breadcrumb ul li a {
+    color: #333;
+}
+.form-control {
+    color: #333;
+}
+.dropdown-item {
+    color: #333;
+}
+.layout-sidebar-large .sidebar-left .navigation-left .nav-item {
+    color: #333;
+}
+.layout-sidebar-large .sidebar-left-secondary .childNav li.nav-item a {
+    color: #333;
+}
+.dropdown-item:hover, .dropdown-item:focus {
+    color: #0b4fa5;
+}
+.dropdown-header {
+    color: #0b4fa5;
+}
+.text-muted {
+    color: #666 !important;
+}
+.text-primary {
+    color: #0b4fa5 !important;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #0b4fa5;
+    border-color: #0b4fa5;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #d59e01;
+    border-color: #d59e01;
+}
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+    background-color: #d59e01;
+    border-color: #d59e01;
+}
+.btn-link:hover {
+    color: #d59e01;
+}
+.layout-sidebar-large .sidebar-left .navigation-left .nav-item.active .triangle {
+    border-color: transparent transparent #0b4fa5 transparent;
+}
+.layout-sidebar-large .sidebar-left .navigation-left .nav-item.active {
+    color: #0b4fa5;
+}
+.spinner-bubble-primary {
+    color: #0b4fa5;
+}
+.dropdown-item.active, .dropdown-item:active {
+    background-color: #0b4fa5;
+}
+.nav-tabs .nav-item .nav-link.active {
+    border-bottom: 2px solid #0b4fa5;
+    background: rgba(252,187,2, 0.1);
+}
+.btn-link {
+    color: #0b4fa5;
+}
+.form-control:focus {
+    color: #333;
+    background-color: #fff;
+    border-color: #fce17c;
+    box-shadow: 0 0 0 0.2rem rgba(252,187,2, 0.25);
+}
+.btn-primary:focus, .btn-primary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(252,187,2, 0.5);
+}
+.layout-sidebar-large .sidebar-left-secondary .childNav li.nav-item a.open {
+    color: #0b4fa5;
+}
+a {
+    color: #0b4fa5;
+}
+a:hover{
+    color: #d59e01;
+}
+.form-actions a {
+    color: #0b4fa5 !important;
+}
+.form-actions a:hover{
+    color: #d59e01 !important;
+}
+.btn-primary.disabled, .btn-primary:disabled {
+    background-color: #d59e01;
+    border-color: #d59e01;
+}
+form label {
+    color: #333 !important;
+}
+.toast-container .toast{
+    color: #333 !important;
+}
+.breadcrumb ul li {
+    color: #0b4fa5;
+}
+.btn-dark {
+    background-color: #333;
+    border-color: #333;
+}
+.btn-dark:hover {
+    background-color: #000;
+    border-color: #000;
+}
+.hinting-suggesstions ul li a {
+    color: #333;
+}
+.plan-price {
+    font-size: 31px !important;
+    margin: 10px 0 20px !important;
+    display: block;
+    letter-spacing: normal;
+    font-weight: 300 !important;
+}
+.plan-switcher ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: auto;
+    margin: 0 auto;
+    display: block;
+}
+.plan-switcher ul li {
+    display: inline-block;
+    margin: 0 5px;
+}
+.plan-switcher ul li a {
+    display: block;
+    padding: 10px 15px;
+    border: 1px solid;
+    min-width: 120px;
+    border-radius: 50px;
+    line-height: normal;
+}
+.plan-switcher ul li a.active {
+    background: #0b4fa5;
+    color: #fff;
+}
+app-failed,app-success {
+    width: 100%;
+}

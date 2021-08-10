@@ -1,0 +1,273 @@
+<div class="">
+  <div class="breadcrumb">
+    <h1>Overview</h1>
+    <ul>
+      <li><a routerLink="/">Dashboard</a></li>
+      <li>Web Overview</li>
+    </ul>
+  </div>
+
+  <div class="separator-breadcrumb border-top"></div>
+
+
+  <div>
+    <div class="row" *ngIf="analytics_enabled">
+
+
+      <div  class="col">
+        <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
+        <ngb-carousel >
+          <ng-template ngbSlide>
+              <div class="card-body text-center">
+                <i class="i-Business-Mens"></i>
+                <div class="content">
+                  <p class="text-muted mt-2 mb-0">Users</p>
+                  <p class="text-primary text-24 line-height-1 mb-2">
+                    {{summary_stats['ga:sessions']}}
+                  </p>
+                </div>
+              </div>
+          </ng-template>
+          <ng-template ngbSlide>
+              <div class="card-body text-center">
+                <i class="i-Clock-Forward"></i>
+                <div class="content">
+                  <p class="text-muted mt-2 mb-0">Sessions</p>
+                  <p class="text-primary text-24 line-height-1 mb-2">
+                    {{summary_stats['ga:sessions']}}
+                  </p>
+                </div>
+              </div>
+          </ng-template>
+        </ngb-carousel>
+        </div>
+
+      </div>
+
+      <div class="col">
+        <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
+          <ngb-carousel >
+            <ng-template ngbSlide>
+              <div class="card-body text-center">
+                <i class="i-Clock-Forward"></i>
+                <div class="content">
+                  <p class="text-muted mt-2 mb-0">Sessions</p>
+                  <p class="text-primary text-24 line-height-1 mb-2">
+                    {{summary_stats['ga:sessions']}}
+                  </p>
+                </div>
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="card-body text-center">
+                <i class="i-Bar-Chart-4"></i>
+                <div class="content">
+                  <p class="text-muted mt-2 mb-0">Bounce Chart</p>
+                  <p class="text-primary text-24 line-height-1 mb-2">
+                    {{summary_stats['ga:bounceRate'] | number:'1.2-2'}}%</p>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-carousel>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
+          <ngb-carousel >
+            <ng-template ngbSlide>
+              <div class="card-body text-center">
+                <i class="i-Bar-Chart-4"></i>
+                <div class="content">
+                  <p class="text-muted mt-2 mb-0">Bounce Chart</p>
+                  <p class="text-primary text-24 line-height-1 mb-2">
+                    {{summary_stats['ga:bounceRate'] | number:'1.2-2'}}%</p>
+                </div>
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="card-body text-center">
+                <i class="i-Stopwatch"></i>
+                <div class="content">
+                  <p class="text-muted mt-2 mb-0">Duration</p>
+                  <p class="text-primary text-24 line-height-1 mb-2">
+                    {{summary_stats['ga:avgSessionDuration'] | number:'1.2-2'}} s
+                  </p>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-carousel>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
+          <ngb-carousel >
+            <ng-template ngbSlide>
+              <div class="card-body text-center">
+                <i class="i-Stopwatch"></i>
+                <div class="content">
+                  <p class="text-muted mt-2 mb-0">Duration</p>
+                  <p class="text-primary text-24 line-height-1 mb-2">
+                    {{summary_stats['ga:avgSessionDuration'] | number:'1.2-2'}} s
+                  </p>
+                </div>
+              </div>
+            </ng-template>
+
+            <ng-template ngbSlide>
+              <div class="card-body text-center">
+                <i class="i-Bar-Chart-4"></i>
+                <div class="content">
+                  <p class="text-muted mt-2 mb-0">Bounce Chart</p>
+                  <p class="text-primary text-24 line-height-1 mb-2">
+                    {{summary_stats['ga:bounceRate'] | number:'1.2-2'}}%</p>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-carousel>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
+          <ngb-carousel >
+            <ng-template ngbSlide>
+          <div class="card-body text-center">
+            <i class="i-Conference"></i>
+            <div class="content">
+              <p class="text-muted mt-2 mb-0">Total Hits</p>
+              <p class="text-primary text-24 line-height-1 mb-2">
+                {{summary_stats['ga:hits'] | number}}
+              </p>
+            </div>
+          </div>
+            </ng-template>
+
+            <ng-template ngbSlide>
+              <div class="card-body text-center">
+                <i class="i-Bar-Chart-4"></i>
+                <div class="content">
+                  <p class="text-muted mt-2 mb-0">Bounce Chart</p>
+                  <p class="text-primary text-24 line-height-1 mb-2">
+                    {{summary_stats['ga:bounceRate'] | number:'1.2-2'}}%</p>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-carousel>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-8 col-12" *ngIf="analytics_enabled">
+      <div class="card">
+        <ngb-carousel >
+          <ng-template ngbSlide>
+            <div class="card-body p-0">
+              <div id="dashboard-chart">
+                <div echarts [options]="chartLineOption1"></div>
+              </div>
+            </div>
+          </ng-template>
+
+        </ngb-carousel>
+      </div>
+    </div>
+
+    <div *ngIf="!analytics_enabled" class="col-md-8 col-12">
+      <div class="card">
+        <div class="card-body p-5 text-center">
+          <div class="box py-4">
+            <h2 class="text-primary">
+              You have not configured your analytics account or your settings
+              are incorrect.
+
+            </h2>
+            <a class="btn btn-primary text-white btn-rounded btn-lg"
+               routerLink="/web/settings">
+              Configure now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-12">
+      <div class="card">
+          <div class="card-title border-bottom d-flex align-items-center m-0 p-3">
+            <span class="text-primary">Website Stats</span>
+            <span class="flex-grow-1"></span>
+          </div>
+
+        <ngb-carousel NguCarouselPoint>
+          <ng-template ngbSlide>
+          <div>
+              <div class="card-body">
+
+                <div class="flex-grow-1 text-success mb-2">
+                  <p class="text-20 m-0">
+                    Uptime <i class="i-Arrow-Up-in-Circle float-right"></i>
+                  </p>
+                  <p class="text-muted text-18 m-0">12m 35s</p>
+                </div>
+                <div class="flex-grow-1 text-danger mb-2">
+                  <p class="text-20 m-0">
+                    Downtime <i class="i-Arrow-Down-in-Circle float-right"></i>
+                  </p>
+                  <p class="text-muted text-18 m-0">12m 35s</p>
+                </div>
+                <div class="col-12">
+                  <div class="row">
+                    <p>
+                      These are the stats of current added website. These stats represents
+                      for how much time a website was up and for how much time a website was down.
+                      These stats are refreshed after a specific time to make it more reliable.
+                    </p>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+
+          </ng-template>
+
+          <ng-template ngbSlide>
+            <div>
+              <div class="card-body">
+
+                <div class="flex-grow-1 text-success mb-2">
+                  <p class="text-20 m-0">
+                    Uptime <i class="i-Arrow-Up-in-Circle float-right"></i>
+                  </p>
+                  <p class="text-muted text-18 m-0">1hr 25m</p>
+                </div>
+                <div class="flex-grow-1 text-danger mb-2">
+                  <p class="text-20 m-0">
+                    Downtime <i class="i-Arrow-Down-in-Circle float-right"></i>
+                  </p>
+                  <p class="text-muted text-18 m-0">3h 16m</p>
+                </div>
+                <div class="col-12">
+                  <div class="row">
+                    <p>
+                      These are the stats of current added website. These stats represents
+                      for how much time a website was up and for how much time a website was down..
+                      These stats are refreshed after a specific time to make it more reliable..
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </ng-template>
+        </ngb-carousel>
+
+      </div>
+    </div>
+  </div>
+
+
+
+</div>

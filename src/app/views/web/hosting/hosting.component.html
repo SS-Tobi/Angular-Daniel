@@ -1,0 +1,138 @@
+<div class="">
+  <div class="breadcrumb">
+    <h1>Hosting</h1>
+    <ul>
+      <li><a routerLink="/">Dashboard</a></li>
+      <li>Hosting</li>
+    </ul>
+  </div>
+
+  <div class="separator-breadcrumb border-top"></div>
+
+  <div class="row">
+
+
+
+    <div *ngIf="rows && rows.length < 1" class="col-12 mb-4 accord-custom">
+      <ngb-accordion #acc="ngbAccordion" [activeIds]="activeId">
+        <ngb-panel title="Create Hosting">
+          <ng-template ngbPanelContent>
+            <form [formGroup]="formBasic" (ngSubmit)="createHosting()">
+
+              <div class="row">
+
+
+                <div class="col-md-12 col-sm-6 col-12">
+                  <div class="mb-4">
+                    <div class="w-100">
+
+                      <div class="row">
+                        <div class="col-md-6 col-12">
+                          <div class="form-group">
+                            <label for="domain">Domain</label>
+                            <input formControlName="domain" type="text" class="form-control" id="domain"
+                                   placeholder="Enter your domain">
+
+                            <span class="text-danger"
+                                  *ngIf="formBasic.controls.domain.dirty &&
+                formBasic.controls.domain.errors?.required
+                "
+                            >
+              Domain is required
+            </span>
+
+                          </div>
+                        </div>
+
+
+
+                      </div>
+
+
+
+
+
+                      <div class="form-group">
+                        <btn-loading btnClass="btn-primary btn-rounded " [loadingText]="loadingText" [loading]="loading">
+                          Create
+                        </btn-loading>
+                      </div>
+
+
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+              </div>
+
+
+
+
+            </form>
+          </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
+    </div>
+
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card o-hidden">
+        <ngx-datatable
+                class="material fullscreen"
+                [columnMode]="'force'"
+                [headerHeight]="50"
+                [footerHeight]="50"
+                [rowHeight]="60"
+                [scrollbarV]="true"
+                [limit]="10"
+                [rows]="rows" >
+          <ngx-datatable-column name="Domain">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{row.domain}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="IP">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{row.ip}}
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="Username">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{row.username | lowercase}}
+
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="Password">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span *ngIf="showPassword">{{row.password}}</span>
+              <span *ngIf="!showPassword">********</span>
+            </ng-template>
+          </ngx-datatable-column>
+
+
+          <ngx-datatable-column name="Actions">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <div class="form-actions">
+                <a title="Login to cPanel" target="_blank" href="https://{{row.ip}}:2083">
+                  <i class="i-Lock-2"></i></a>
+
+
+                <a title="Show Passwords" (click)="togglePassword()">
+                  <i class="i-Eye"></i></a>
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+      </div>
+    </div>
+  </div>
+</div>

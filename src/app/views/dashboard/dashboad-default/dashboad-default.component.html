@@ -1,0 +1,362 @@
+<div class="">
+    <div class="breadcrumb">
+        <h1>Dashboard</h1>
+    </div>
+
+    <div class="separator-breadcrumb border-top"></div>
+
+    <div class="row">
+        <!-- ICON BG -->
+        <div *ngIf="!analytics_enabled" class="col-lg-6 col-md-6 col-sm-6">
+            <div class="card">
+                <div class="card-body p-5 text-center">
+                    <div class="box py-4">
+                        <h2 class="text-normal">
+                            You have not configured your analytics account or your settings
+                            are incorrect.
+
+                        </h2>
+                        <a class="btn btn-primary text-white btn-rounded btn-lg"
+                           routerLink="/web/settings">
+                            Configure now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="analytics_enabled" class="col-lg-6 col-md-6 col-sm-6">
+            <div class="card mb-4">
+                <div class="card-body p-0">
+                    <div class="d-flex border-bottom justify-content-between p-3">
+                        <div class="flex-grow-1 text-center">
+                            <span class="text-small text-muted">User</span>
+                            <h3 class="m-0 text-primary">
+                                {{summary_stats['ga:sessions']}}
+                            </h3>
+                            <!--<p class="m-0 text-success"><small>1.20%</small></p>-->
+                        </div>
+                        <div class="flex-grow-1 text-center">
+                            <span class="text-small text-muted">Sessions</span>
+                            <h3 class="m-0 text-primary">
+                                {{summary_stats['ga:sessions']}}
+                            </h3>
+                            <!--<p class="m-0 text-success"><small>2.20%</small></p>-->
+                        </div>
+                        <div class="flex-grow-1 text-center">
+                            <span class="text-small text-muted">Bounce Rate</span>
+                            <h3 class="m-0 text-primary">
+                                {{summary_stats['ga:bounceRate'] | number:'1.2-2'}}%
+                            </h3>
+                            <!--<p class="m-0 text-success"><small>2.10%</small></p>-->
+                        </div>
+                        <div class="flex-grow-1 text-center">
+                            <span class="text-small text-muted">Session Duration</span>
+                            <h3 class="m-0 text-primary">
+                                {{summary_stats['ga:avgSessionDuration'] | number:'1.2-2'}} s
+                            </h3>
+                            <!--<p class="m-0 text-success"><small>3.60%</small></p>-->
+                        </div>
+                        <div class="flex-grow-1 text-center">
+                            <span class="text-small text-muted">Hits</span>
+                            <h3 class="m-0 text-primary">
+
+                                {{summary_stats['ga:hits'] | number}}
+                            </h3>
+                            <!--<p class="m-0 text-success"><small>Real time report</small></p>-->
+                        </div>
+                    </div>
+
+                    <div id="dashboard-chart">
+
+
+
+
+                        <div echarts [options]="chartLineOption1"></div>
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-10 mx-auto col-12 my-2">
+                            <div class="row">
+                                <div class="col-12 col-sm-6">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <div class="flex-grow-1 text-success">
+                                                <p class="text-20 m-0">
+                                                    Page load time
+                                                    <!--<i class="i-Arrow-Up-in-Circle float-right"></i>-->
+                                                </p>
+                                                <p class="text-muted text-18 m-0">
+                                                    {{summary_stats['ga:avgPageLoadTime'] | number}} s
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <div class="flex-grow-1 text-info">
+                                                <p class="text-20 m-0">
+                                                    <!--<i class="i-Arrow-Down-in-Circle "></i> -->
+                                                    Server response time
+                                                </p>
+                                                <p class="text-muted text-18 m-0">
+                                                    {{summary_stats['ga:avgServerResponseTime'] | number}} s
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="card mb-4">
+                <div class="card-body p-0">
+                    <div class="card-title border-bottom d-flex align-items-center m-0 p-3">
+                        <span>Current Stats</span>
+                        <span class="flex-grow-1"></span>
+                    </div>
+                    <div class="d-flex border-bottom justify-content-between p-3">
+                        <div class="flex-grow-1 stats-icon-box-con">
+                            <i class="i-Instagram text-primary stats-box-icon"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <span class="text-small text-muted">Followers</span>
+                            <h5 class="m-0">{{profileData?.instagram?.followers}}</h5>
+
+                        </div>
+                        <div class="flex-grow-1">
+                            <span class="text-small text-muted">Following</span>
+                            <h5 class="m-0">{{profileData?.instagram?.following}}</h5>
+                        </div>
+                        <div class="flex-grow-1">
+                            <span class="text-small text-muted">Total Posts</span>
+                            <h5 class="m-0">{{profileData?.instagram?.media}}</h5>
+
+                        </div>
+                        <div class="flex-grow-1">
+                            <span class="text-small text-muted">Engagement Rate</span>
+                            <h5 class="m-0">{{profileData?.instagram?.engagement_rate}}</h5>
+                        </div>
+                    </div>
+                    <div class="d-flex border-bottom justify-content-between p-3">
+                        <div class="flex-grow-1 stats-icon-box-con">
+                            <i class="i-Facebook text-primary stats-box-icon"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <span class="text-small text-muted">Page Likes</span>
+                            <h5 class="m-0">{{profileData?.facebook?.page_likes}}</h5>
+                        </div>
+                        <div class="flex-grow-1">
+                            <span class="text-small text-muted">Talking About</span>
+                            <h5 class="m-0">{{profileData?.facebook?.talking_about}}</h5>
+                        </div>
+                        <div class="flex-grow-1">
+                            <span class="text-small text-muted">Grade</span>
+                            <h5 class="m-0">{{profileData?.facebook?.grade}}</h5>
+                        </div>
+                        <div class="flex-grow-1">
+                            <span class="text-small text-muted">Likes Rank</span>
+                            <h5 class="m-0">{{profileData?.facebook?.likes_rank}}</h5>
+                        </div>
+                    </div>
+                    <div class="d-flex border-bottom justify-content-between p-3">
+                        <div class="flex-grow-1 stats-icon-box-con">
+                            <i class="i-Twitter text-primary stats-box-icon"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <span class="text-small text-muted">Total Tweets</span>
+                            <h5 class="m-0">{{profileData?.twitter?.tweets}}</h5>
+                        </div>
+                        <div class="flex-grow-1">
+                            <span class="text-small text-muted">Followers</span>
+                            <h5 class="m-0">{{profileData?.twitter?.followers}}</h5>
+                        </div>
+                        <div class="flex-grow-1">
+                            <span class="text-small text-muted">Following</span>
+                            <h5 class="m-0">{{profileData?.twitter?.following}}</h5>
+                        </div>
+                        <div class="flex-grow-1">
+                            <span class="text-small text-muted">Likes</span>
+                            <h5 class="m-0">{{profileData?.twitter?.likes}}</h5>
+                        </div>
+                    </div>
+                    <div class="d-flex border-bottom justify-content-between p-3" *ngIf="false">
+                        <div class="flex-grow-1 stats-icon-box-con">
+                            <i class="i-Linkedin-2 text-primary stats-box-icon"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <span class="text-small text-muted">Connections</span>
+                            <h5 class="m-0">0</h5>
+                        </div>
+                        <div class="flex-grow-1">
+                            <span class="text-small text-muted">Average monthly connections</span>
+                            <h5 class="m-0">0</h5>
+                        </div>
+                        <div class="flex-grow-1">
+                            <span class="text-small text-muted">This month collections</span>
+                            <h5 class="m-0">0</h5>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-6 col-md-6 col-sm-6" *ngIf="false">
+            <div class="card mb-4">
+                <div class="card-body p-0">
+                    <div class="card-title border-bottom d-flex align-items-center m-0 p-3">
+                        <span>Review</span>
+                        <span class="flex-grow-1"></span>
+                    </div>
+                    <div class="d-flex border-bottom justify-content-between p-3">
+                        <div class="flex-grow-1">
+                            <h4 class="text-primary m-0 mb-1">Google Business</h4>
+                            <div class="d-flex justify-content-between border-bottom py-3">
+                                <div class="flex-grow-1">
+                                    <p class="text-16 text-muted m-0">
+                                        <strong>0</strong> Current Review Count
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between border-bottom py-3">
+                                <div class="flex-grow-1">
+                                    <p class="text-16 text-muted m-0">
+                                        <strong>0</strong> Average Review
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between py-3">
+                                <div class="flex-grow-1">
+                                    <p class="text-16 text-muted m-0">
+                                        <strong>0</strong> Review Change
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-grow-1">
+                            <h4 class="text-primary m-0 mb-1">Yelp</h4>
+                            <div class="d-flex justify-content-between border-bottom py-3">
+                                <div class="flex-grow-1">
+                                    <p class="text-16 text-muted m-0">
+                                        <strong>0</strong> Current Review Count
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between border-bottom py-3">
+                                <div class="flex-grow-1">
+                                    <p class="text-16 text-muted m-0">
+                                        <strong>0</strong> Average Review
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between py-3">
+                                <div class="flex-grow-1">
+                                    <p class="text-16 text-muted m-0">
+                                        <strong>0</strong> Review Change
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12"
+            *ngIf="!competitors || competitors.length < 1"
+        >
+            <div class="card">
+                <div class="card-body p-5 text-center">
+                    <div class="box py-4">
+                        <h1 class="text-primary">
+                            You have not added any competitor yet.
+                        </h1>
+                        <a class="btn btn-primary text-white btn-rounded btn-lg"
+                           routerLink="/competitor/add">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12"
+             *ngIf="competitors && competitors.length > 0"
+        >
+            <div class="card mb-4">
+                <div class="card-body p-0">
+                    <div class="card-title border-bottom d-flex align-items-center m-0 p-3">
+                        <span>Competitors</span>
+                        <span class="flex-grow-1 float-right">
+                            <a routerLink="/analytics/overview" class="float-right btn btn-primary text-white btn-rounded">
+                                Details
+                            </a>
+                        </span>
+
+                    </div>
+
+                        <ngx-datatable
+                                class="material fullscreen"
+                                [columnMode]="'force'"
+                                [headerHeight]="50"
+                                [footerHeight]="50"
+                                [rowHeight]="60"
+                                [scrollbarV]="true"
+                                [limit]="10"
+                                [rows]="competitors" >
+                            <ngx-datatable-column name="Name">
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                    {{row.name}}
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="Website">
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                    <span *ngIf="!row.website_speed">{{row.website}}</span>
+                                    <small class="text-muted"
+                                    ><span *ngIf="row.website_speed">
+                                        Website loaded in {{row.website_speed | number}}s
+                                    </span>
+                                    </small>
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="Facebook Rank">
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                    {{row.stats?.facebook?.likes_rank.replace('undefined','')}}
+                                </ng-template>
+                            </ngx-datatable-column>
+
+                            <ngx-datatable-column name="Engagement Rate">
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                    {{row.stats?.instagram?.engagement_rate}}
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="Twitter Likes">
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+
+                                    {{row.stats?.twitter?.likes}}
+                                </ng-template>
+                            </ngx-datatable-column>
+
+
+                        </ngx-datatable>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+

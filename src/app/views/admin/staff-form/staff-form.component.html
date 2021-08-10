@@ -1,0 +1,76 @@
+<div class="">
+  <div class="breadcrumb">
+    <h1>{{pageTitle}} Staff</h1>
+  </div>
+  <div class="breadcrumb buttons">
+    <a routerLink="/plan/view" class="btn btn-primary">View All</a>
+  </div>
+
+  <div class="separator-breadcrumb border-top"></div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <form [formGroup]="form" (ngSubmit)="saveData()">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title mb-3">Basic Details</div>
+
+            <div class="form-group">
+              <label for="full_name">Full Name</label>
+              <input type="text" id="full_name" class="form-control form-control-rounded"
+                     formControlName="full_name"  placeholder="Enter Full Name"/>
+              <div *ngIf="f.full_name.touched && f.full_name.errors" class="text-danger">
+                <div *ngIf="f.full_name.errors.required">Full Name is required</div>
+                <div *ngIf="!f.full_name.errors.required && !f.full_name.valid">{{f.full_name.errors}}</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" id="email" class="form-control form-control-rounded"
+                     formControlName="email"  placeholder="Enter Email"/>
+              <div *ngIf="f.email.touched && f.email.errors" class="text-danger">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+                <div *ngIf="f.email.errors.email">Email is not valid</div>
+                <div *ngIf="!f.email.errors.required && !f.email.errors.email && !f.email.valid">{{f.email.errors}}</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" class="form-control form-control-rounded"
+                     formControlName="password"  placeholder="Enter Password"/>
+              <div *ngIf="f.password.touched && f.password.errors" class="text-danger">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+                <div *ngIf="!f.password.errors.required && !f.password.valid">{{f.password.errors}}</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="confirm_password">Confirm Password</label>
+              <input type="password" id="confirm_password" class="form-control form-control-rounded"
+                     formControlName="confirm_password"  placeholder="Confirm Password"/>
+              <div *ngIf="f.confirm_password.touched && f.confirm_password.errors" class="text-danger">
+                <div *ngIf="f.confirm_password.errors.required">Confirm Password is required</div>
+                <div *ngIf="f.confirm_password.errors.mustMatch">Password and Confirm Password must match</div>
+                <div *ngIf="!f.confirm_password.errors.required && !f.confirm_password.errors.mustMatch &&
+                 !f.confirm_password.valid">{{f.confirm_password.errors}}</div>
+              </div>
+            </div>
+
+            <div class="form-group mt-4 mb-3">
+              <btn-loading btnClass="btn-primary btn-rounded" [loading]="loading">Save</btn-loading>
+            </div>
+
+
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+
+</div>

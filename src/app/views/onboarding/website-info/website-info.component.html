@@ -1,0 +1,45 @@
+<div class="col-12 col-sm-12 col-md-10 mx-auto">
+  <div class="on-boarding-form card-on-boarding-boxed mt-2">
+    <p>Step 4 of 4</p>
+    <h1>Finally Add your Website</h1>
+    <div class="card-on-boarding-box card-box-transparent">
+      <div class="onBoarding-form-box">
+
+        <div class="row">
+          <div class="col-12 col-sm-10 col-md-8 mx-auto">
+            <div class="card">
+              <div class="card-body">
+
+                <form [formGroup]="formBasic" (ngSubmit)="submit()">
+
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="website_url" placeholder="Enter website url">
+                  </div>
+
+
+
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="form-btn-center">
+              <btn-loading (click)="submit()" btnClass="btn-primary btn-rounded mt-3"
+                           [loadingText]="loadingText" [loading]="loading">
+                Finish
+                <i class="i-Arrow-Right-in-Circle"></i>
+              </btn-loading>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>

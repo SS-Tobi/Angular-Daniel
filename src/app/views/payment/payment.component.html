@@ -1,0 +1,15 @@
+<div class="on-boarding-layout">
+    <div class="container">
+        <div class="row onboarding-menu">
+            <div class="col-md-6 col-12">
+                <img src="assets/images/logo.png" alt="">
+            </div>
+            <div class="col-md-6 col-12">
+                <a href="javascript:;">Hello, {{auth.user.name}} | <span (click)="auth.signout()">Logout</span></a>
+            </div>
+        </div>
+        <div class="row">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

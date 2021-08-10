@@ -1,0 +1,136 @@
+<div class="">
+  <div class="breadcrumb">
+    <h1>Social Media Settings</h1>
+    <ul>
+      <li><a routerLink="/">Dashboard</a></li>
+      <li>Social Media Settings</li>
+    </ul>
+  </div>
+
+  <div class="separator-breadcrumb border-top"></div>
+
+
+
+    <div class="row">
+
+      <form class="col-6" [formGroup]="facebookForm" (ngSubmit)="saveProfile('facebook')">
+          <div class="col-md-12 col-sm-12 col-12">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="card-title">
+                  <i class="i-Facebook-2 text-primary mr-2"></i><strong>Facebook</strong>
+                </div>
+                <div class="form-group" [ngClass]="{'success-mark': facebookForm.value.valid=='1','error-mark': facebookForm.value.valid=='-1'}">
+                  <input type="text"
+                         formControlName="profile"
+                         class="form-control"  id="facebook_url" placeholder="Enter your url">
+
+                  <span
+                          *ngIf="facebookForm.controls.profile.dirty
+                      && facebookForm.controls.profile.errors?.required"
+                          class="text-danger">Profile is required</span>
+
+                </div>
+                <div class="col-md-3 float-right">
+                  <btn-loading btnClass="btn-primary btn-rounded btn-block mt-3"
+                               [loadingText]="loadingText" [loading]="facebookLoading">
+                    Save
+                  </btn-loading>
+                </div>
+              </div>
+            </div>
+          </div>
+      </form>
+
+      <form class="col-6" [formGroup]="instagramForm" (ngSubmit)="saveProfile('instagram')">
+        <div class="col-md-12 col-sm-12 col-12">
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="card-title">
+                <i class="i-Instagram text-primary mr-2"></i><strong>Instagram</strong>
+              </div>
+              <div class="form-group" [ngClass]="{'success-mark': instagramForm.value.valid=='1','error-mark': instagramForm.value.valid=='-1'}">
+                <input type="text" class="form-control"
+                       formControlName="profile"
+                       id="instagram_url" placeholder="Enter your url">
+                <span
+                        *ngIf="instagramForm.controls.profile.dirty
+                      && instagramForm.controls.profile.errors?.required"
+                        class="text-danger">Profile is required</span>
+              </div>
+              <div class="col-md-3 float-right">
+                <btn-loading btnClass="btn-primary btn-rounded btn-block mt-3"
+                             [loadingText]="loadingText" [loading]="instagramLoading">
+                  Save
+                </btn-loading>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <form class="col-6" [formGroup]="twitterForm" (ngSubmit)="saveProfile('twitter')">
+        <div class="col-md-12 col-sm-12 col-12">
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="card-title">
+                <i class="i-Twitter-2 text-primary mr-2"></i><strong>Twitter</strong>
+              </div>
+              <div class="form-group" [ngClass]="{'success-mark': twitterForm.value.valid=='1','error-mark': twitterForm.value.valid=='-1'}">
+                <input type="text" class="form-control"
+                       formControlName="profile"
+                       id="twitter_url" placeholder="Enter your url">
+                <span
+                        *ngIf="twitterForm.controls.profile.dirty
+                      && twitterForm.controls.profile.errors?.required"
+                        class="text-danger">Profile is required</span>
+              </div>
+              <div class="col-md-3 float-right">
+                <btn-loading btnClass="btn-primary btn-rounded btn-block mt-3"
+                             [loadingText]="loadingText" [loading]="twitterLoading">
+                  Save
+                </btn-loading>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <form class="col-6" [formGroup]="linkedinForm" (ngSubmit)="saveProfile('linkedin')">
+        <div class="col-md-12 col-sm-12 col-12">
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="card-title">
+                <i class="i-Linkedin-2 text-primary mr-2"></i><strong>LinkedIn</strong>
+              </div>
+              <div class="form-group" [ngClass]="{'success-mark': linkedinForm.value.valid=='1','error-mark': linkedinForm.value.valid=='-1'}">
+
+                  <input type="text" class="form-control"
+                         formControlName="profile"
+                         id="linkin_url" placeholder="Enter your url">
+
+                <span
+                        *ngIf="linkedinForm.controls.profile.dirty
+                      && linkedinForm.controls.profile.errors?.required"
+                        class="text-danger">Profile is required</span>
+
+              </div>
+
+              <div class="col-md-3 float-right">
+                <btn-loading btnClass="btn-primary btn-rounded btn-block mt-3"
+                             [loadingText]="loadingText" [loading]="linkedinLoading">
+                  Save
+                </btn-loading>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+
+
+
+
+</div>

@@ -1,0 +1,265 @@
+<div class="breadcrumb">
+  <h1>Profile</h1>
+  <ul>
+    <li><a routerLink="/">Dashboard</a></li>
+    <li>Profile</li>
+  </ul>
+</div>
+
+<div class="separator-breadcrumb border-top"></div>
+
+
+<div class="row">
+
+  <div class="col-md-4 col-12">
+    <div class="card user-profile o-hidden mb-4">
+      <div class="header-cover" style="height: 150px;background-image: url('assets/images/photo-wide-4.jpg')"></div>
+      <div class="user-info">
+        <img class="profile-picture avatar-lg mb-2" src="assets/images/avatar.png" alt="">
+        <p class="m-0 text-24">{{auth.user.name}}</p>
+      </div>
+      <div class="user-details">
+        <ul>
+
+          <li>
+            <p>Email</p>
+            <p>{{auth.user.email}}</p>
+          </li>
+          <li>
+            <p>Registered On</p>
+            <p>{{auth.user.added_on |  date}}</p>
+          </li>
+          <li>
+            <p>Current Plan</p>
+            <p *ngIf="auth.isPlanExpired()" class="text-danger">Plan is Expired</p>
+            <p *ngIf="!auth.isPlanExpired()"><strong>Expired On: </strong>{{auth.user.plan_expiry*1000 |  date:'MMM d, y h:mm:ss a'}}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-8 col-12">
+    <div class="card user-profile o-hidden mb-4">
+      <div class="card-body p-0">
+        <ngb-tabset class="nav-center">
+          <ngb-tab title="Profile">
+            <ng-template ngbTabContent>
+              <form [formGroup]="profileForm" (ngSubmit)="updateProfile()">
+
+                <div class="form-group">
+                  <label for="full_name">Full Name</label>
+                  <input type="text" formControlName="full_name"
+                         class="form-control" id="full_name"
+                         placeholder="Enter your full name">
+
+                  <span class="text-danger"
+                        *ngIf="profileForm.controls.full_name.dirty &&
+                    profileForm.controls.full_name.errors?.required
+                    "
+                  >
+                  Full name is required
+                </span>
+
+                  <span class="text-danger"
+                        *ngIf="profileForm.controls.full_name.dirty &&
+                    profileForm.controls.full_name.errors?.min
+                    "
+                  >
+                  Full name should be at least 5 characters long.
+                </span>
+
+
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="text" class="form-control" id="email"
+                       [value]="auth.user.email" formControlName="email" placeholder="Enter email">
+                  <span class="text-danger"
+                        *ngIf="profileForm.controls.email.dirty &&
+                profileForm.controls.email.errors?.required
+                "
+                  >
+              Email is required
+            </span>
+
+                  <span class="text-danger"
+                        *ngIf="profileForm.controls.email.dirty &&
+                profileForm.controls.email.errors?.email
+                "
+                  >
+              Email should be a valid email
+            </span>
+                </div>
+
+                <div class="form-group">
+                  <label for="mobile_no">Mobile no.</label>
+                  <input type="text" formControlName="mobile_no"
+                         class="form-control" id="mobile_no"
+                         placeholder="Enter your Mobile no">
+
+                  <span class="text-danger"
+                        *ngIf="profileForm.controls.mobile_no.dirty &&
+                    profileForm.controls.mobile_no.errors?.required
+                    "
+                  >
+                  Mobile no is required
+                </span>
+
+                  <span class="text-danger"
+                        *ngIf="profileForm.controls.mobile_no.dirty &&
+                    profileForm.controls.mobile_no.errors?.pattern
+                    "
+                  >
+                  Mobile number is invalid.
+                </span>
+
+
+                </div>
+
+                <div class="form-group">
+                  <label for="zip_code">Zip Code</label>
+                  <input type="text" formControlName="zip_code"
+                         class="form-control" id="zip_code"
+                         placeholder="Enter your Zip Code">
+
+                  <span class="text-danger"
+                        *ngIf="profileForm.controls.zip_code.dirty &&
+                    profileForm.controls.zip_code.errors?.required
+                    "
+                  >
+                  Zip code is required
+                </span>
+
+                  <span class="text-danger"
+                        *ngIf="profileForm.controls.zip_code.dirty &&
+                    profileForm.controls.zip_code.errors?.pattern
+                    "
+                  >
+                  Zip code is invalid.
+                </span>
+
+
+
+
+                </div>
+
+                <div class="form-group mt-4 mb-3">
+                  <btn-loading
+                          btnClass="btn-primary  mr-2"
+                          [loadingText]="profileLoadingText" [loading]="profileLoading">
+                    Save
+                  </btn-loading>
+                  <button type="reset" class="btn btn-dark">Reset</button>
+                </div>
+              </form>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab title="Change Password">
+            <ng-template ngbTabContent>
+              <form [formGroup]="changePasswordForm" (ngSubmit)="changePassword()">
+                <div class="form-group">
+                  <label for="old_password">Old Password</label>
+                  <input type="password" formControlName="old_password" class="form-control" id="old_password"
+                         placeholder="Enter Old Password">
+                  <span class="text-danger"
+                        *ngIf="changePasswordForm.controls.old_password.dirty &&
+                    changePasswordForm.controls.old_password.errors?.required
+                    "
+                  >
+                  Old Password is required
+                </span>
+
+                  <span class="text-danger"
+                        *ngIf="changePasswordForm.controls.old_password.dirty &&
+                    changePasswordForm.controls.old_password.errors?.wrong
+                    "
+                  >
+                  Incorrect old password, try again.
+                </span>
+                </div>
+                <div class="form-group">
+                  <label for="new_password">New Password</label>
+                  <input type="password" formControlName="new_password" class="form-control"
+                         id="new_password" placeholder="Enter new Password">
+
+                  <span class="text-danger"
+                        *ngIf="changePasswordForm.controls.new_password.dirty &&
+                    changePasswordForm.controls.new_password.errors?.required
+                    "
+                  >
+                  Password is required
+                </span>
+
+                  <span class="text-danger"
+                        *ngIf="changePasswordForm.controls.new_password.dirty &&
+                      changePasswordForm.controls.new_password.errors?.min
+                      "
+                  >
+                    Password should be at least 8 characters long.
+                  </span>
+
+                  <span class="text-danger"
+                        *ngIf="changePasswordForm.controls.new_password.dirty &&
+                      changePasswordForm.controls.new_password.errors?.match
+                      "
+                  >
+                    Password and confirm password should match.
+                  </span>
+                  <password-strength-meter [password]="changePasswordForm.value.new_password"></password-strength-meter>
+
+                </div>
+                <div class="form-group">
+                  <label for="confirm_password">Confirm Password</label>
+                  <input type="password" formControlName="confirm_password" class="form-control"
+                         id="confirm_password" placeholder="Enter confirm password">
+
+                  <span class="text-danger"
+                            *ngIf="changePasswordForm.controls.confirm_password.dirty &&
+                    changePasswordForm.controls.confirm_password.errors?.required
+                    "
+                      >
+                  Confirm password is required
+                </span>
+
+                  <span class="text-danger"
+                        *ngIf="changePasswordForm.controls.confirm_password.dirty &&
+                      changePasswordForm.controls.confirm_password.errors?.min
+                      "
+                        >
+                    Confirm password should be at least 8 characters long.
+                  </span>
+
+                        <span class="text-danger"
+                              *ngIf="changePasswordForm.controls.confirm_password.dirty &&
+                      changePasswordForm.controls.confirm_password.errors?.match
+                      "
+                        >
+                    Password and confirm password should match.
+                  </span>
+                  <password-strength-meter [password]="changePasswordForm.value.confirm_password"></password-strength-meter>
+
+
+                </div>
+                <div class="form-group mt-4 mb-3">
+                  <btn-loading
+                          btnClass="btn-primary  mr-2"
+                          [loadingText]="passwordLoadingText" [loading]="passwordLoading">
+                    Save
+                  </btn-loading>
+                  <button type="reset" class="btn btn-dark">Reset</button>
+                </div>
+              </form>
+            </ng-template>
+          </ngb-tab>
+
+
+        </ngb-tabset>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+

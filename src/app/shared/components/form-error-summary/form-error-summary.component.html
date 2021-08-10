@@ -1,0 +1,8 @@
+<div *ngIf="form.controls && form.controls.length>0">
+  <ul>
+    <li *ngFor="let error of form.controls">
+      <span class="text-danger">{{error}}</span>
+    </li>
+  </ul>
+
+</div>

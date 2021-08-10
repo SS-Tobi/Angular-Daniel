@@ -1,0 +1,218 @@
+<div class="" >
+  <div class="breadcrumb">
+    <h1>Competitor Overview</h1>
+    <ul>
+      <li><a routerLink="/">Dashboard</a></li>
+      <li>Competitor Overview</li>
+    </ul>
+  </div>
+
+  <div class="separator-breadcrumb border-top"></div>
+
+  <div class="col-lg-12 col-md-12 col-sm-12"
+       *ngIf="!competitors || competitors.length < 1"
+  >
+    <div class="card">
+      <div class="card-body p-5 text-center">
+        <div class="box py-4">
+          <h1 class="text-primary">
+            You have not added any competitor yet.
+          </h1>
+          <a class="btn btn-primary text-white btn-rounded btn-lg"
+             routerLink="/competitor/add">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div  class="row" *ngFor="let competitor of competitors; index as i">
+
+    <div class="col-md-12 col-sm-12 col-12">
+      <div class="card mb-4">
+        <div class="card-body p-0">
+          <div class="text-primary card-title border-bottom d-flex align-items-center m-0 p-3">
+            <strong style="font-size: 23px">{{i+1}}. {{competitor.name}}</strong>
+            <small class="text-muted ml-3">
+              {{competitor.website}}
+
+              <span *ngIf="competitor.website_speed">
+                loaded in {{this.showAfterConvertToDecimals(competitor.website_speed)}}s
+              </span>
+            </small>
+          </div>
+          <div class="card-body">
+
+            <div class="row" *ngIf="false">
+              <div class="col-md-6 col-12">
+                <h4 class="my-3 border-bottom pb-2">
+                  Google Business (Dummy data)
+                </h4>
+                <div class="row">
+                  <div class="col-12 col-sm-4">
+                    <div class="social-stats-summary">
+                      <p>Current Review Count</p>
+                      <p><strong>2070</strong></p>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-4">
+                    <div class="social-stats-summary">
+                      <p>Average Review</p>
+                      <p><strong>550</strong></p>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-4">
+                    <div class="social-stats-summary">
+                      <p>Review Change</p>
+                      <p><strong>200</strong></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-12">
+                <h4 class="my-3 border-bottom pb-2">
+                  Yelp (Dummy data)
+                </h4>
+                <div class="row">
+                  <div class="col-12 col-sm-4">
+                    <div class="social-stats-summary">
+                      <p>Current Review Count</p>
+                      <p><strong>2000</strong></p>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-4">
+                    <div class="social-stats-summary">
+                      <p>Average Review</p>
+                      <p><strong>120</strong></p>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-4">
+                    <div class="social-stats-summary">
+                      <p>Review Change</p>
+                      <p><strong>400</strong></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+              <div class="row">
+
+                <div class="col-md-4 col-sm-6 col-12">
+                  <h4 class="my-3 border-bottom pb-2">
+                    Facebook
+                  </h4>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="social-stats-summary">
+                        <p>Likes</p>
+                        <p><strong>{{competitor.stats?.facebook?.page_likes}}</strong></p>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="social-stats-summary">
+                        <p>Talking about</p>
+                        <p><strong>{{competitor.stats?.facebook?.talking_about}}</strong></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="social-stats-summary">
+                        <p>Page Grade</p>
+                        <p><strong>{{competitor.stats?.facebook?.grade}}</strong></p>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="social-stats-summary">
+                        <p>Likes Rank</p>
+                        <p><strong>{{competitor.stats?.facebook?.likes_rank.replace('undefined','')}}</strong></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-12">
+                  <h4 class="my-3 border-bottom pb-2">
+                    Instagram
+                  </h4>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="social-stats-summary">
+                        <p>Followers</p>
+                        <p><strong>{{competitor.stats?.instagram?.followers}}</strong></p>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="social-stats-summary">
+                        <p>Following</p>
+                        <p><strong>{{competitor.stats?.instagram?.following}}</strong></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="social-stats-summary">
+                        <p>Engagement Rate</p>
+                        <p><strong>{{competitor.stats?.instagram?.engagement_rate}}</strong></p>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="social-stats-summary">
+                        <p>Total Posts</p>
+                        <p><strong>{{competitor.stats?.instagram?.media}}</strong></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-12">
+                  <h4 class="my-3 border-bottom pb-2">
+                    Twitter
+                  </h4>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="social-stats-summary">
+                        <p>Tweets</p>
+                        <p><strong>{{competitor.stats?.twitter?.tweets}}</strong></p>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="social-stats-summary">
+                        <p>Following</p>
+                        <p><strong>{{competitor.stats?.twitter?.following}}</strong></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="social-stats-summary">
+                        <p>Followers</p>
+                        <p><strong>{{competitor.stats?.twitter?.followers}}</strong></p>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="social-stats-summary">
+                        <p>Likes</p>
+                        <p><strong>{{competitor.stats?.twitter?.likes}}</strong></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+
+
+</div>

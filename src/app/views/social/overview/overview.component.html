@@ -1,0 +1,186 @@
+<div class="">
+  <div class="breadcrumb">
+    <h1>Social Media Summary</h1>
+    <ul>
+      <li><a routerLink="/">Dashboard</a></li>
+      <li>Social Media Summary</li>
+    </ul>
+  </div>
+
+  <div class="separator-breadcrumb border-top"></div>
+
+  <div class="row">
+
+    <div class="col-md-4 col-sm-6 col-12">
+      <div class="card mb-4">
+        <div class="card-body p-0">
+          <div class="card-title border-bottom d-flex align-items-center m-0 p-3">
+            Facebook
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-6">
+                <div class="social-stats-summary">
+                  <p>Page Like</p>
+                  <p><strong>{{profileData?.facebook?.page_likes}}</strong></p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="social-stats-summary">
+                  <p>Talking About</p>
+                  <p><strong>{{profileData?.facebook?.talking_about}}</strong></p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="social-stats-summary">
+                  <p>Grade</p>
+                  <p><strong>{{profileData?.facebook?.grade}}</strong></p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="social-stats-summary">
+                  <p>Likes Rank</p>
+                  <p><strong>{{profileData?.facebook?.likes_rank}}</strong></p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-12">
+      <div class="card mb-4">
+        <div class="card-body p-0">
+          <div class="card-title border-bottom d-flex align-items-center m-0 p-3">
+            Instagram
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-6">
+                <div class="social-stats-summary">
+                  <p>Followers</p>
+                  <p><strong>{{profileData?.instagram?.followers}}</strong></p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="social-stats-summary">
+                  <p>Following</p>
+                  <p><strong>{{profileData?.instagram?.following}}</strong></p>
+
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="social-stats-summary">
+                  <p>Engagement Rate</p>
+                  <p><strong>{{profileData?.instagram?.engagement_rate}}</strong></p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="social-stats-summary">
+                  <p>Total Posts</p>
+                  <p><strong>{{profileData?.instagram?.media}}</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-12">
+      <div class="card mb-4">
+        <div class="card-body p-0">
+          <div class="card-title border-bottom d-flex align-items-center m-0 p-3">
+            Twitter
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-6">
+                <div class="social-stats-summary">
+                  <p>Tweets</p>
+                  <p><strong>{{profileData?.twitter?.tweets}}</strong></p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="social-stats-summary">
+                  <p>Following</p>
+                  <p><strong>{{profileData?.twitter?.following}}</strong></p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="social-stats-summary">
+                  <p>Followers</p>
+                  <p><strong>{{profileData?.twitter?.followers}}</strong></p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="social-stats-summary">
+                  <p>Likes</p>
+                  <p><strong>{{profileData?.twitter?.likes}}</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-12" *ngIf="false">
+      <div class="card mb-4">
+        <div class="card-body p-0">
+          <div class="card-title border-bottom d-flex align-items-center m-0 p-3">
+            LinkedIn
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-6">
+                <div class="social-stats-summary">
+                  <p>Connections</p>
+                  <p><strong>500+</strong></p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="social-stats-summary">
+                  <p>This month Connections</p>
+                  <p><strong>30</strong></p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="social-stats-summary">
+                  <p>Average monthly connections</p>
+                  <p><strong>45</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row" *ngIf="false">
+    <div class="col-md-12">
+      <div class="card mb-4">
+        <div class="card-body p-0">
+          <div class="card-title border-bottom d-flex align-items-center m-0 p-3">
+            Social Media Status
+          </div>
+          <div echarts [options]="socialMediaStats"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

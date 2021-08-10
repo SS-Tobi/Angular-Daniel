@@ -1,0 +1,29 @@
+<div class="col-12 col-sm-12 col-md-10 mx-auto">
+  <div class="on-boarding-form card-on-boarding-boxed mt-2">
+    <div class="card-on-boarding-box card-box-transparent">
+      <div class="onBoarding-form-box">
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-6 mx-auto">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-title mb-2">
+                  <p class="m-0 mt-3" style="font-size: 25px"><strong>Payment Processing...</strong></p>
+                </div>
+                <div class="card-body pt-0">
+                  <div class="card-desc">
+                    Please wait while we are verifying your payment.
+                  </div>
+                  <btn-loading btnClass="btn-primary btn-rounded mt-3"
+                               [loadingText]="loadingText" [loading]="loading">
+                    Verifying
+                    <i class="i-Arrow-Right-in-Circle"></i>
+                  </btn-loading>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

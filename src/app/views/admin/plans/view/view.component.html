@@ -1,0 +1,65 @@
+<div class="">
+  <div class="breadcrumb">
+    <h1>Plans</h1>
+    <ul>
+      <li><a routerLink="/">Dashboard</a></li>
+      <li>Plans</li>
+    </ul>
+  </div>
+  <div class="breadcrumb buttons">
+    <a routerLink="/admin/plans/add" class="btn btn-primary">Add New Plan</a>
+  </div>
+
+  <div class="separator-breadcrumb border-top"></div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card o-hidden">
+        <ngx-datatable
+                class="material fullscreen"
+                [columnMode]="'force'"
+                [headerHeight]="50"
+                [footerHeight]="50"
+                [rowHeight]="60"
+                [scrollbarV]="true"
+                [limit]="10"
+                [rows]="rows" >
+          <ngx-datatable-column name="Name">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{row.name}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Monthly Price">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{env.CURRENCY}}{{row.monthly_price}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Yearly Price">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{env.CURRENCY}}{{row.yearly_price}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Update Interval">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{row.update_interval}} mins
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Updated On">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{row.updated_on | date}}
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="Actions">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <div class="form-actions">
+                <a style="cursor:pointer" title="Edit" (click)="doEdit(row._id)"><i class="i-Pen-2"></i></a>
+                <a style="cursor:pointer" title="Delete" (click)="doDelete(row._id)"><i class="i-Close"></i></a>
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+      </div>
+    </div>
+  </div>
+</div>

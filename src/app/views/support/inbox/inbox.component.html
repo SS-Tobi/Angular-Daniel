@@ -1,0 +1,61 @@
+<div class="">
+  <div class="breadcrumb">
+    <h1>Support Inbox</h1>
+    <ul>
+      <li><a routerLink="/">Dashboard</a></li>
+      <li>Support Inbox</li>
+    </ul>
+  </div>
+
+  <div class="breadcrumb buttons">
+    <a routerLink="/support/new-case" class="btn btn-primary">New Case</a>
+  </div>
+
+  <div class="separator-breadcrumb border-top"></div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card o-hidden">
+        <ngx-datatable
+                class="material fullscreen"
+                [columnMode]="'force'"
+                [headerHeight]="50"
+                [footerHeight]="50"
+                [rowHeight]="60"
+                [scrollbarV]="true"
+                [limit]="10"
+                [rows]="rows" >
+          <ngx-datatable-column name="Ticket ID" [maxWidth]="150">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{row.ticket_id}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Subject">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{row.subject}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Created On">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{row.added_on}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Status">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{row.status}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Action">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <div class="form-actions">
+                <a title="View Ticket" routerLink="/support/view-ticket/{{row._id}}"><i class="i-Eye"></i></a>
+                <a *ngIf="row.status=='open'" (click)="markAsResolved(row._id)" title="Mark As Resolve" href="javascript:;"><i class="i-Like"></i></a>
+                <a (click)="deleteTicket(row._id)" title="Delete Ticket" href="javascript:;"><i class="i-Close"></i></a>
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+      </div>
+    </div>
+  </div>
+</div>

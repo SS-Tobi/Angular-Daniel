@@ -1,0 +1,50 @@
+<div class="">
+  <div class="breadcrumb">
+    <h1>Billing History</h1>
+    <ul>
+      <li><a routerLink="/">Dashboard</a></li>
+      <li>Billing History</li>
+    </ul>
+  </div>
+
+
+  <div class="separator-breadcrumb border-top"></div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card o-hidden">
+        <ngx-datatable
+                class="material fullscreen"
+                [columnMode]="'force'"
+                [headerHeight]="50"
+                [footerHeight]="50"
+                [rowHeight]="60"
+                [scrollbarV]="true"
+                [limit]="10"
+                [rows]="rows" >
+          <ngx-datatable-column name="Transaction ID" [maxWidth]="150">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{row.stripe_session_id}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Amount">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{env.CURRENCY}} {{row.amount}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Updated On">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{row.updated_on | date}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Payment Status">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{row.payment_status | uppercase}}
+            </ng-template>
+          </ngx-datatable-column>
+
+        </ngx-datatable>
+      </div>
+    </div>
+  </div>
+</div>

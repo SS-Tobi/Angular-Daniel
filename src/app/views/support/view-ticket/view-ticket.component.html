@@ -1,0 +1,52 @@
+<div class="card chat-sidebar-container sidebar-container">
+  <div class="chat-content-wrap">
+    <div  class="ng-tns-c9-0">
+      <div  class="d-flex pl-3 pr-3 pt-2 pb-2 o-hidden box-shadow-1 chat-topbar">
+        <a  class="link-icon d-md-none" ><i  class="icon-regular i-Right ml-0 mr-3"></i></a><!---->
+        <div  class="align-items-center ng-tns-c9-0 ng-star-inserted">
+          <h3  class="m-0 text-title text-16 flex-grow-1">{{ticket.subject}} <span class="badge badge-{{ticket.status}}">{{ticket.status | uppercase}}</span> </h3>
+          <p  class="m-0 text-title text-16 flex-grow-1">{{ticket.message}}</p>
+        </div>
+      </div>
+      <!---->
+      <div #messageBoxContainer class="chat-content rtl-ps-none ng-tns-c9-0 ps ng-star-inserted ps--active-y">
+        <!---->
+
+          <div  class="mb-4 ng-tns-c9-0 ng-star-inserted" *ngFor="let message of messageLists">
+            <!----><!---->
+            <div  class="d-flex ng-tns-c9-0 ng-star-inserted">
+              <div  class="message flex-grow-1">
+                <div  class="d-flex">
+                  <p  class="mb-1 text-title text-16 flex-grow-1">{{message.user}}</p>
+                  <span  class="text-small text-muted">{{message.time}}</span>
+                </div>
+                <p  class="m-0">
+                  {{message.message}}
+                </p>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!---->
+      <div *ngIf="ticket.status=='open' && !auth.isAdmin()" class="pl-3 pr-3 pt-3 pb-3 box-shadow-1 chat-input-area ng-tns-c9-0 ng-star-inserted">
+        <form [formGroup]="formBasic" (ngSubmit)="submit()" class="inputForm ng-pristine ng-valid ng-touched" >
+          <div  class="form-group">
+            <textarea formControlName="message"  class="form-control form-control-rounded ng-pristine ng-valid ng-touched" cols="30" id="message" name="message" ngmodel="" placeholder="Type your message" rows="3" data-gramm="true" data-txt_gramm_id="d1847d9b-a81e-12e6-1a32-05c321ed9e8c" data-gramm_id="d1847d9b-a81e-12e6-1a32-05c321ed9e8c" spellcheck="false" data-gramm_editor="true" style="background: transparent none repeat scroll 0% 0% !important; z-index: auto; position: relative; line-height: 19.5px; font-size: 13px; transition: none 0s ease 0s;"></textarea>
+            <span class="text-danger" *ngIf="formBasic.controls.message.dirty && formBasic.controls.message.errors?.required">
+                    Message is required
+                  </span>
+          </div>
+          <div  class="d-flex">
+            <btn-loading btnClass="btn btn-rounded btn-outline-primary"
+                         [loading]="loading" [loadingText]="loadingText">
+                <i  class="i-Paper-Plane">&nbsp;</i>Send
+            </btn-loading>
+            <div  class="flex-grow-1"></div>
+            <button *ngIf="!auth.isStaff()" (click)="markResolve()" class="btn btn-rounded btn-outline-success" type="button">Mark as Resolved</button>
+          </div>
+        </form>
+      </div>
+      <!----><!---->
+    </div>
+  </div>
+</div>

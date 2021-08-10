@@ -1,0 +1,544 @@
+<div class="">
+    <div class="breadcrumb">
+        <h1>{{user.full_name}}</h1>
+    </div>
+
+    <div class="separator-breadcrumb border-top"></div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-4">
+                <div class="card-body p-0">
+                    <div class="text-primary card-title border-bottom d-flex align-items-center m-0 p-3">
+                       User Details
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12 col-sm-4">
+                                <div class="social-stats-summary"><p>Full name</p>
+                                    <p><strong>{{user.full_name}}</strong></p></div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="social-stats-summary"><p>Email</p>
+                                    <p><strong>{{user.email}}</strong></p></div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="social-stats-summary"><p>Registered On</p>
+                                    <p><strong>{{user.added_on | date}}</strong></p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="analytics_enabled" >
+
+
+        <div  class="col">
+            <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
+                <ngb-carousel >
+                    <ng-template ngbSlide>
+                        <div class="card-body text-center">
+                            <i class="i-Business-Mens"></i>
+                            <div class="content">
+                                <p class="text-muted mt-2 mb-0">Users</p>
+                                <p class="text-primary text-24 line-height-1 mb-2">
+                                    {{summary_stats['ga:sessions']}}
+                                </p>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template ngbSlide>
+                        <div class="card-body text-center">
+                            <i class="i-Clock-Forward"></i>
+                            <div class="content">
+                                <p class="text-muted mt-2 mb-0">Sessions</p>
+                                <p class="text-primary text-24 line-height-1 mb-2">
+                                    {{summary_stats['ga:sessions']}}
+                                </p>
+                            </div>
+                        </div>
+                    </ng-template>
+                </ngb-carousel>
+            </div>
+
+        </div>
+
+        <div class="col">
+            <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
+                <ngb-carousel >
+                    <ng-template ngbSlide>
+                        <div class="card-body text-center">
+                            <i class="i-Clock-Forward"></i>
+                            <div class="content">
+                                <p class="text-muted mt-2 mb-0">Sessions</p>
+                                <p class="text-primary text-24 line-height-1 mb-2">
+                                    {{summary_stats['ga:sessions']}}
+                                </p>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template ngbSlide>
+                        <div class="card-body text-center">
+                            <i class="i-Bar-Chart-4"></i>
+                            <div class="content">
+                                <p class="text-muted mt-2 mb-0">Bounce Chart</p>
+                                <p class="text-primary text-24 line-height-1 mb-2">
+                                    {{summary_stats['ga:bounceRate'] | number:'1.2-2'}}%</p>
+                            </div>
+                        </div>
+                    </ng-template>
+                </ngb-carousel>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
+                <ngb-carousel >
+                    <ng-template ngbSlide>
+                        <div class="card-body text-center">
+                            <i class="i-Bar-Chart-4"></i>
+                            <div class="content">
+                                <p class="text-muted mt-2 mb-0">Bounce Chart</p>
+                                <p class="text-primary text-24 line-height-1 mb-2">
+                                    {{summary_stats['ga:bounceRate'] | number:'1.2-2'}}%</p>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template ngbSlide>
+                        <div class="card-body text-center">
+                            <i class="i-Stopwatch"></i>
+                            <div class="content">
+                                <p class="text-muted mt-2 mb-0">Duration</p>
+                                <p class="text-primary text-24 line-height-1 mb-2">
+                                    {{summary_stats['ga:avgSessionDuration'] | number:'1.2-2'}} s
+                                </p>
+                            </div>
+                        </div>
+                    </ng-template>
+                </ngb-carousel>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
+                <ngb-carousel >
+                    <ng-template ngbSlide>
+                        <div class="card-body text-center">
+                            <i class="i-Stopwatch"></i>
+                            <div class="content">
+                                <p class="text-muted mt-2 mb-0">Duration</p>
+                                <p class="text-primary text-24 line-height-1 mb-2">
+                                    {{summary_stats['ga:avgSessionDuration'] | number:'1.2-2'}} s
+                                </p>
+                            </div>
+                        </div>
+                    </ng-template>
+
+                    <ng-template ngbSlide>
+                        <div class="card-body text-center">
+                            <i class="i-Bar-Chart-4"></i>
+                            <div class="content">
+                                <p class="text-muted mt-2 mb-0">Bounce Chart</p>
+                                <p class="text-primary text-24 line-height-1 mb-2">
+                                    {{summary_stats['ga:bounceRate'] | number:'1.2-2'}}%</p>
+                            </div>
+                        </div>
+                    </ng-template>
+                </ngb-carousel>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
+                <ngb-carousel >
+                    <ng-template ngbSlide>
+                        <div class="card-body text-center">
+                            <i class="i-Conference"></i>
+                            <div class="content">
+                                <p class="text-muted mt-2 mb-0">Total Hits</p>
+                                <p class="text-primary text-24 line-height-1 mb-2">
+                                    {{summary_stats['ga:hits'] | number}}
+                                </p>
+                            </div>
+                        </div>
+                    </ng-template>
+
+                    <ng-template ngbSlide>
+                        <div class="card-body text-center">
+                            <i class="i-Bar-Chart-4"></i>
+                            <div class="content">
+                                <p class="text-muted mt-2 mb-0">Bounce Chart</p>
+                                <p class="text-primary text-24 line-height-1 mb-2">
+                                    {{summary_stats['ga:bounceRate'] | number:'1.2-2'}}%</p>
+                            </div>
+                        </div>
+                    </ng-template>
+                </ngb-carousel>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 col-12" *ngIf="analytics_enabled">
+            <div class="card">
+                <ngb-carousel >
+                    <ng-template ngbSlide>
+                        <div class="card-body p-0">
+                            <div id="dashboard-chart">
+                                <div echarts [options]="chartLineOption1"></div>
+                            </div>
+                        </div>
+                    </ng-template>
+
+                </ngb-carousel>
+            </div>
+        </div>
+
+        <div *ngIf="!analytics_enabled" class="col-md-8 col-12 admin-card-not-env" >
+            <div class="card">
+                <div class="card-body admin-card-not-en text-center">
+                    <div class="box py-4">
+                        <h2 class="text-primary">
+                            User doesn't have configured analytics in his account or his settings
+                            are incorrect.
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-12" style="margin-bottom: 30px">
+            <div class="card">
+                <div class="card-title border-bottom d-flex align-items-center m-0 p-3">
+                    <span class="text-primary">Website Stats</span>
+                    <span class="flex-grow-1"></span>
+                </div>
+
+                <ngb-carousel NguCarouselPoint>
+                    <ng-template ngbSlide>
+                        <div>
+                            <div class="card-body">
+
+                                <div class="flex-grow-1 text-success mb-2">
+                                    <p class="text-20 m-0">
+                                        Uptime <i class="i-Arrow-Up-in-Circle float-right"></i>
+                                    </p>
+                                    <p class="text-muted text-18 m-0">12m 35s</p>
+                                </div>
+                                <div class="flex-grow-1 text-danger mb-2">
+                                    <p class="text-20 m-0">
+                                        Downtime <i class="i-Arrow-Down-in-Circle float-right"></i>
+                                    </p>
+                                    <p class="text-muted text-18 m-0">12m 35s</p>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row">
+                                        <p>
+                                            These are the stats of current added website. These stats represents
+                                            for how much time a website was up and for how much time a website was down.
+                                            These stats are refreshed after a specific time to make it more reliable.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </ng-template>
+
+                    <ng-template ngbSlide>
+                        <div>
+                            <div class="card-body">
+
+                                <div class="flex-grow-1 text-success mb-2">
+                                    <p class="text-20 m-0">
+                                        Uptime <i class="i-Arrow-Up-in-Circle float-right"></i>
+                                    </p>
+                                    <p class="text-muted text-18 m-0">1hr 25m</p>
+                                </div>
+                                <div class="flex-grow-1 text-danger mb-2">
+                                    <p class="text-20 m-0">
+                                        Downtime <i class="i-Arrow-Down-in-Circle float-right"></i>
+                                    </p>
+                                    <p class="text-muted text-18 m-0">3h 16m</p>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row">
+                                        <p>
+                                            These are the stats of current added website. These stats represents
+                                            for how much time a website was up and for how much time a website was down..
+                                            These stats are refreshed after a specific time to make it more reliable..
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </ng-template>
+                </ngb-carousel>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-4 col-sm-6 col-12">
+            <div class="card mb-4">
+                <div class="card-body p-0">
+                    <div class="card-title text-primary border-bottom d-flex align-items-center m-0 p-3">
+                        Facebook
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="social-stats-summary">
+                                    <p>Page Like</p>
+                                    <p><strong>{{profileData?.facebook?.page_likes}}</strong></p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="social-stats-summary">
+                                    <p>Talking About</p>
+                                    <p><strong>{{profileData?.facebook?.talking_about}}</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="social-stats-summary">
+                                    <p>Grade</p>
+                                    <p><strong>{{profileData?.facebook?.grade}}</strong></p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="social-stats-summary">
+                                    <p>Likes Rank</p>
+                                    <p><strong>{{profileData?.facebook?.likes_rank}}</strong></p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-12">
+            <div class="card mb-4">
+                <div class="card-body p-0">
+                    <div class="card-title text-primary border-bottom d-flex align-items-center m-0 p-3">
+                        Instagram
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="social-stats-summary">
+                                    <p>Followers</p>
+                                    <p><strong>{{profileData?.instagram?.followers}}</strong></p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="social-stats-summary">
+                                    <p>Following</p>
+                                    <p><strong>{{profileData?.instagram?.following}}</strong></p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="social-stats-summary">
+                                    <p>Engagement Rate</p>
+                                    <p><strong>{{profileData?.instagram?.engagement_rate}}</strong></p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="social-stats-summary">
+                                    <p>Total Posts</p>
+                                    <p><strong>{{profileData?.instagram?.media}}</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-12">
+            <div class="card mb-4">
+                <div class="card-body p-0">
+                    <div class="card-title text-primary border-bottom d-flex align-items-center m-0 p-3">
+                        Twitter
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="social-stats-summary">
+                                    <p>Tweets</p>
+                                    <p><strong>{{profileData?.twitter?.tweets}}</strong></p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="social-stats-summary">
+                                    <p>Following</p>
+                                    <p><strong>{{profileData?.twitter?.following}}</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="social-stats-summary">
+                                    <p>Followers</p>
+                                    <p><strong>{{profileData?.twitter?.followers}}</strong></p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="social-stats-summary">
+                                    <p>Likes</p>
+                                    <p><strong>{{profileData?.twitter?.likes}}</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-12" *ngIf="false">
+            <div class="card mb-4">
+                <div class="card-body p-0">
+                    <div class="card-title text-primary border-bottom d-flex align-items-center m-0 p-3">
+                        LinkedIn
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="social-stats-summary">
+                                    <p>Connections</p>
+                                    <p><strong>500+</strong></p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="social-stats-summary">
+                                    <p>This month Connections</p>
+                                    <p><strong>30</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="social-stats-summary">
+                                    <p>Average monthly connections</p>
+                                    <p><strong>45</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-6 col-sm-6 col-12">
+            <div class="card mb-4">
+                <div class="card-body p-0">
+                    <div class="text-primary card-title border-bottom d-flex align-items-center m-0 p-3">
+                        Google Business
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12 col-sm-4">
+                                <div class="social-stats-summary">
+                                    <p>Current Review Count</p>
+                                    <p><strong>0</strong></p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="social-stats-summary">
+                                    <p>Average Review</p>
+                                    <p><strong>0</strong></p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="social-stats-summary">
+                                    <p>Review Change</p>
+                                    <p><strong>0</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-6 col-12">
+            <div class="card mb-4">
+                <div class="card-body p-0">
+                    <div class="text-primary card-title border-bottom d-flex align-items-center m-0 p-3">
+                        Yelp
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12 col-sm-4">
+                                <div class="social-stats-summary">
+                                    <p>Current Review Count</p>
+                                    <p><strong>0</strong></p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="social-stats-summary">
+                                    <p>Average Review</p>
+                                    <p><strong>0</strong></p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="social-stats-summary">
+                                    <p>Review Change</p>
+                                    <p><strong>0</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-12">
+            <div class="card mb-4">
+                <div class="card-body p-0">
+                    <div class="card-title text-primary border-bottom d-flex align-items-center m-0 p-3">
+                        Google Business Review History
+                    </div>
+                    <div echarts [options]="googleBusinessReview"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-12">
+            <div class="card mb-4">
+                <div class="card-body p-0">
+                    <div class="card-title text-primary border-bottom d-flex align-items-center m-0 p-3">
+                        Yelp Review History
+                    </div>
+                    <div echarts [options]="yelpReview"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>
+

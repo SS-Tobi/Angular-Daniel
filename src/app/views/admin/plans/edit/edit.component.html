@@ -1,0 +1,86 @@
+<div class="breadcrumb">
+  <h1>Edit Plan</h1>
+  <ul>
+    <li><a routerLink="/">Dashboard</a></li>
+    <li>Edit Plan</li>
+  </ul>
+</div>
+
+<div class="separator-breadcrumb border-top"></div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card mb-4">
+      <div class="card-body">
+        <form [formGroup]="formBasic" (ngSubmit)="submit()">
+          <div class="row">
+
+            <div class="col-md-6 form-group mb-3">
+              <label for="name">Name</label>
+              <div  class="hinting-input">
+                <input type="text"
+                       formControlName="name"
+                       class="form-control"  id="name" placeholder="Enter the plan's name">
+              </div>
+              <span *ngIf="formBasic.controls.name.touched && formBasic.controls.name.errors?.required" class="text-danger">Name is required</span>
+            </div>
+
+            <div class="col-md-6 form-group mb-3">
+              <label for="name">Data update - Interval (Mins)</label>
+              <div  class="hinting-input">
+                <input type="text"
+                       formControlName="update_interval"
+                       class="form-control"  id="update_interval" placeholder="Enter the interval for data update">
+              </div>
+              <span *ngIf="formBasic.controls.update_interval.touched && formBasic.controls.update_interval.errors?.required" class="text-danger">Interval is required</span>
+              <span *ngIf="formBasic.controls.update_interval.touched && formBasic.controls.update_interval.errors?.pattern" class="text-danger">Interval is invalid</span>
+            </div>
+
+            <div class="col-md-6 form-group mb-3">
+              <label for="name">Monthly Price</label>
+              <div  class="hinting-input">
+                <input type="text"
+                       formControlName="monthly_price"
+                       class="form-control"  id="monthly_price" placeholder="Monthly Price">
+              </div>
+              <span *ngIf="formBasic.controls.monthly_price.touched && formBasic.controls.monthly_price.errors?.required" class="text-danger">Monthly Price is required</span>
+              <span *ngIf="formBasic.controls.monthly_price.touched && formBasic.controls.monthly_price.errors?.pattern" class="text-danger">Monthly Price is invalid</span>
+            </div>
+
+            <div class="col-md-6 form-group mb-3">
+              <label for="name">Yearly Price</label>
+              <div  class="hinting-input">
+                <input type="text"
+                       formControlName="yearly_price"
+                       class="form-control"  id="yearly_price" placeholder="Yearly Price">
+              </div>
+              <span *ngIf="formBasic.controls.yearly_price.touched && formBasic.controls.yearly_price.errors?.required" class="text-danger">Yearly Price is required</span>
+              <span *ngIf="formBasic.controls.yearly_price.touched && formBasic.controls.yearly_price.errors?.pattern" class="text-danger">Yearly Price is invalid</span>
+            </div>
+
+            <div class="col-md-12 form-group mb-3">
+              <label for="name">Description</label>
+              <div  class="hinting-input">
+                <textarea rows="3"
+                          formControlName="description"
+                          class="form-control"  id="description" placeholder="Describe plan"></textarea>
+              </div>
+              <span *ngIf="formBasic.controls.description.touched && formBasic.controls.description.errors?.required" class="text-danger">Description is required</span>
+            </div>
+
+
+
+            <div class="col-md-12">
+              <btn-loading btnClass="btn-primary"
+                           [loading]="loading" [loadingText]="loadingText">
+                Save
+              </btn-loading>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+</div>

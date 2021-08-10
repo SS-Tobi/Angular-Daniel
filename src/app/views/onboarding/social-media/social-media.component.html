@@ -1,0 +1,85 @@
+<div class="col-12 col-sm-12 col-md-10 mx-auto">
+  <div class="on-boarding-form card-on-boarding-boxed mt-5">
+    <p>Step 2 of 4</p>
+    <h1>Lets connect with social media</h1>
+    <div class="card-on-boarding-box card-box-transparent">
+      <div class="social-media-lists">
+        <ul>
+          <li>
+            <div class="card">
+              <div class="card-body">
+                <form class="col-6" [formGroup]="facebookForm" (ngSubmit)="saveProfile('facebook')">
+                  <div class="card-title">
+                    <i class="i-Facebook-2 text-primary mr-2"></i>
+                    <strong>Facebook</strong>
+                  </div>
+                  <div class="form-group" [ngClass]="{'success-mark': facebookForm.value.valid=='1','error-mark': facebookForm.value.valid=='-1'}">
+                    <input type="text" formControlName="profile" class="form-control"  id="facebook_url" placeholder="Enter your url">
+                    <span *ngIf="facebookForm.controls.profile.dirty && facebookForm.controls.profile.errors?.required" class="text-danger">Profile is required</span>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="card">
+              <div class="card-body">
+                <form class="col-6" [formGroup]="instagramForm" (ngSubmit)="saveProfile('instagram')">
+                  <div class="card-title">
+                    <i class="i-Instagram text-primary mr-2"></i>
+                    <strong>Instagram</strong>
+                  </div>
+                  <div class="form-group" [ngClass]="{'success-mark': instagramForm.value.valid=='1','error-mark': instagramForm.value.valid=='-1'}">
+                    <input type="text" formControlName="profile" class="form-control"  id="instagram_url" placeholder="Enter your url">
+                    <span *ngIf="instagramForm.controls.profile.dirty && instagramForm.controls.profile.errors?.required" class="text-danger">Profile is required</span>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="card">
+              <div class="card-body">
+                <form class="col-6" [formGroup]="twitterForm" (ngSubmit)="saveProfile('twitter')">
+                  <div class="card-title">
+                    <i class="i-Twitter text-primary mr-2"></i>
+                    <strong>Twitter</strong>
+                  </div>
+                  <div class="form-group" [ngClass]="{'success-mark': twitterForm.value.valid=='1','error-mark': twitterForm.value.valid=='-1'}">
+                    <input type="text" formControlName="profile" class="form-control"  id="twitter_url" placeholder="Enter your url">
+                    <span *ngIf="twitterForm.controls.profile.dirty && twitterForm.controls.profile.errors?.required" class="text-danger">Profile is required</span>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="card">
+              <div class="card-body">
+                <form class="col-6" [formGroup]="linkedinForm" (ngSubmit)="saveProfile('linkedin')">
+                  <div class="card-title">
+                    <i class="i-Linkedin-2 text-primary mr-2"></i>
+                    <strong>LinkedIn</strong>
+                  </div>
+                  <div class="form-group" [ngClass]="{'success-mark': linkedinForm.value.valid=='1','error-mark': linkedinForm.value.valid=='-1'}">
+                    <input type="text" formControlName="profile" class="form-control"  id="lkinkedin_url" placeholder="Enter your url">
+                    <span *ngIf="linkedinForm.controls.profile.dirty && linkedinForm.controls.profile.errors?.required" class="text-danger">Profile is required</span>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="form-btn-center">
+          <btn-loading (click)="submitForms()" btnClass="btn-primary btn-rounded mt-3"
+                       [loadingText]="loadingText" [loading]="loading">
+            Next
+            <i class="i-Arrow-Right-in-Circle"></i>
+          </btn-loading>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

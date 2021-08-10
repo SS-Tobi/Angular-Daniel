@@ -1,0 +1,104 @@
+<div class="">
+  <div class="breadcrumb">
+    <h1>Reviews Summary</h1>
+    <ul>
+      <li><a routerLink="/">Dashboard</a></li>
+      <li>Reviews Summary</li>
+    </ul>
+  </div>
+
+  <div class="separator-breadcrumb border-top"></div>
+
+  <div class="row">
+
+    <div class="col-md-6 col-sm-6 col-12">
+      <div class="card mb-4">
+        <div class="card-body p-0">
+          <div class="text-primary card-title border-bottom d-flex align-items-center m-0 p-3">
+            Google Business
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12 col-sm-4">
+                <div class="social-stats-summary">
+                  <p>Current Review Count</p>
+                  <p><strong>0</strong></p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4">
+                <div class="social-stats-summary">
+                  <p>Average Review</p>
+                  <p><strong>0</strong></p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4">
+                <div class="social-stats-summary">
+                  <p>Review Change</p>
+                  <p><strong>0</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-sm-6 col-12">
+      <div class="card mb-4">
+        <div class="card-body p-0">
+          <div class="text-primary card-title border-bottom d-flex align-items-center m-0 p-3">
+            Yelp
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12 col-sm-4">
+                <div class="social-stats-summary">
+                  <p>Current Review Count</p>
+                  <p><strong>0</strong></p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4">
+                <div class="social-stats-summary">
+                  <p>Average Review</p>
+                  <p><strong>0</strong></p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4">
+                <div class="social-stats-summary">
+                  <p>Review Change</p>
+                  <p><strong>0</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row" *ngIf="false">
+    <div class="col-md-6 col-12">
+      <div class="card mb-4">
+        <div class="card-body p-0">
+          <div class="card-title border-bottom d-flex align-items-center m-0 p-3">
+            Google Business Review History
+          </div>
+          <div echarts [options]="googleBusinessReview"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-12">
+      <div class="card mb-4">
+        <div class="card-body p-0">
+          <div class="card-title border-bottom d-flex align-items-center m-0 p-3">
+            Yelp Review History
+          </div>
+          <div echarts [options]="yelpReview"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,116 @@
+<div class="col-12 col-sm-12 col-md-10 mx-auto">
+  <div class="on-boarding-form card-on-boarding-boxed mt-2">
+    <p>Step 1 of 4</p>
+    <h1>Update your basic details</h1>
+    <div class="card-on-boarding-box card-box-transparent">
+      <div class="onBoarding-form-box">
+
+        <div class="row">
+          <div class="col-12 col-sm-10 col-md-8 mx-auto">
+            <div class="card">
+              <div class="card-body">
+                <form class="alignLeftText" [formGroup]="profileForm" (ngSubmit)="updateProfile()">
+
+                  <div class="form-group">
+                    <label for="full_name">Full Name</label>
+                    <input type="text" formControlName="full_name"
+                           class="form-control" id="full_name"
+                           placeholder="Enter your full name">
+
+                    <span class="text-danger"
+                          *ngIf="profileForm.controls.full_name.dirty &&
+                    profileForm.controls.full_name.errors?.required
+                    "
+                    >
+                  Full name is required
+                </span>
+
+                    <span class="text-danger"
+                          *ngIf="profileForm.controls.full_name.dirty &&
+                    profileForm.controls.full_name.errors?.min
+                    "
+                    >
+                  Full name should be at least 5 characters long.
+                </span>
+
+
+                  </div>
+
+
+
+                  <div class="form-group">
+                    <label for="mobile_no">Mobile no.</label>
+                    <input type="text" formControlName="mobile_no"
+                           class="form-control" id="mobile_no"
+                           placeholder="Enter your Mobile no">
+
+                    <span class="text-danger"
+                          *ngIf="profileForm.controls.mobile_no.dirty &&
+                    profileForm.controls.mobile_no.errors?.required
+                    "
+                    >
+                  Mobile no is required
+                </span>
+
+                    <span class="text-danger"
+                          *ngIf="profileForm.controls.mobile_no.dirty &&
+                    profileForm.controls.mobile_no.errors?.pattern
+                    "
+                    >
+                  Mobile number is invalid.
+                </span>
+
+
+                  </div>
+
+                  <div class="form-group">
+                    <label for="zip_code">Zip Code</label>
+                    <input type="text" formControlName="zip_code"
+                           class="form-control" id="zip_code"
+                           placeholder="Enter your Zip Code">
+
+                    <span class="text-danger"
+                          *ngIf="profileForm.controls.zip_code.dirty &&
+                    profileForm.controls.zip_code.errors?.required
+                    "
+                    >
+                  Zip code is required
+                </span>
+
+                    <span class="text-danger"
+                          *ngIf="profileForm.controls.zip_code.dirty &&
+                    profileForm.controls.zip_code.errors?.pattern
+                    "
+                    >
+                  Zip code is invalid.
+                </span>
+
+
+
+
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="form-btn-center">
+              <btn-loading (click)="updateProfile()" btnClass="btn-primary btn-rounded mt-3"
+                           [loadingText]="profileLoadingText" [loading]="profileLoading">
+                Next
+                <i class="i-Arrow-Right-in-Circle"></i>
+              </btn-loading>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>

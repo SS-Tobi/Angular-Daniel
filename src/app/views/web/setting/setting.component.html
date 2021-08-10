@@ -1,0 +1,63 @@
+<div class="">
+  <div class="breadcrumb">
+    <h1>Web Settings</h1>
+    <ul>
+      <li><a routerLink="/">Dashboard</a></li>
+      <li>Web Settings</li>
+    </ul>
+  </div>
+
+  <div class="separator-breadcrumb border-top"></div>
+
+  <form [formGroup]="formBasic" (ngSubmit)="submit()">
+
+    <div class="row">
+
+
+      <div class="col-md-6 col-sm-6 col-12">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="card-title">
+              <strong>Google Analytics Settings</strong>
+            </div>
+            <div class="form-group">
+              <input type="text"
+                     formControlName="view_id"
+                     class="form-control" id="view_id" placeholder="Enter your view id">
+            </div>
+
+            <div class="form-group">
+              <input type="text"
+                     formControlName="client_email"
+                     class="form-control" id="client_email" placeholder="Enter your client email">
+            </div>
+
+            <div class="form-group">
+              <textarea type="text"
+                     formControlName="private_key"
+                     class="form-control" id="private_key" placeholder="Enter your private key">
+              </textarea>
+            </div>
+
+            <div class="col-md-3 float-right">
+              <btn-loading btnClass="btn-primary btn-rounded btn-block mt-3"
+                           [loadingText]="loadingText" [loading]="loading">
+                Update
+              </btn-loading>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+
+
+  </form>
+
+</div>

@@ -1,0 +1,86 @@
+<div class="breadcrumb">
+  <h1>Add Competitor</h1>
+  <ul>
+    <li><a routerLink="/">Dashboard</a></li>
+    <li>Add Competitor</li>
+  </ul>
+</div>
+
+<div class="separator-breadcrumb border-top"></div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card mb-4">
+      <div class="card-body">
+        <form [formGroup]="formBasic" (ngSubmit)="submit()">
+          <div class="row">
+
+            <div class="col-md-6 form-group mb-3">
+              <label for="name">Name</label>
+              <input type="text"
+                     formControlName="name"
+                     class="form-control" id="name" placeholder="Enter the competitor's name">
+              <span
+                      *ngIf="formBasic.controls.name.dirty
+                      && formBasic.controls.name.errors.required"
+                      class="text-danger">Name is required</span>
+            </div>
+
+            <div class="col-md-6 form-group mb-3">
+              <label for="websiteUrl">Website URL</label>
+              <input type="text"
+                     formControlName="website"
+                     class="form-control" id="websiteUrl" placeholder="Enter the website url">
+              <span
+                      *ngIf="formBasic.controls.website.dirty && formBasic.controls.website.errors.required"
+                      class="text-danger">Website is required</span>
+            </div>
+
+            <div class="col-md-6 form-group mb-3">
+              <label for="facebookUrl">Facebook Handle</label>
+              <input type="text"
+                     formControlName="facebook"
+                     class="form-control" id="facebookUrl" placeholder="Enter the Facebook handle">
+              <span
+                      *ngIf="formBasic.controls.facebook.dirty && formBasic.controls.facebook.errors.required"
+                      class="text-danger">Facebook handle is required</span>
+            </div>
+
+            <div class="col-md-6 form-group mb-3">
+              <label for="instagramUrl">Instagram Handle</label>
+              <input type="text"
+                     formControlName="instagram"
+                     class="form-control" id="instagramUrl" placeholder="Enter the Instagram handle">
+              <span
+                      *ngIf="formBasic.controls.instagram.dirty && formBasic.controls.instagram.errors.required"
+                      class="text-danger">Instagram handle is required</span>
+            </div>
+
+            <div class="col-md-6 form-group mb-3">
+              <label for="twitterUrl">Twitter Handle</label>
+              <input type="text"
+                     formControlName="twitter"
+                     class="form-control" id="twitterUrl" placeholder="Enter the Twitter handle">
+
+              <span
+                      *ngIf="formBasic.controls.twitter.dirty && formBasic.controls.twitter.errors.required"
+                      class="text-danger">Twitter handle is required</span>
+
+            </div>
+
+
+
+            <div class="col-md-12">
+              <btn-loading btnClass="btn-primary"
+                           [loading]="loading" [loadingText]="loadingText">
+                Save
+              </btn-loading>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+</div>
