@@ -4,7 +4,7 @@ export class Utils {
         return {
             //API_HOST:'http://genlem.iologue.co:1339/api/',
             // API_HOST:'http://localhost:1337/api/',
-            API_HOST:'http://localhost:3000/api/',
+            API_HOST:'http://54.219.12.195:3000/api/',
             CURRENCY:'$',
         };
     }
